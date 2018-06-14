@@ -26,9 +26,12 @@
 		4958B3EF32DD4DFC898A932F /* Cabo-Rounded.otf in Resources */ = {isa = PBXBuildFile; fileRef = 682E6ACE172F4AAB9F21257F /* Cabo-Rounded.otf */; };
 		5CDAF19C06F24C788B3994BC /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D477FF4306024030A88C1F08 /* libBVLinearGradient.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
+		6CE2576ADC6247F290F60DD7 /* libRNCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA44D4A02CBB4405B0312899 /* libRNCamera.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		84F6EF1DDAD84A09B2F7066F /* Cabo-Rounded-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F554BE04C4C48EAB605AEEE /* Cabo-Rounded-Italic.otf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		C898391A20D30F1A0006F7D0 /* ip.txt in Resources */ = {isa = PBXBuildFile; fileRef = C898391920D30F1A0006F7D0 /* ip.txt */; };
+		CCC1FDC287DD4AA6A8754995 /* libReactNativePermissions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52A3D6AB31EF4FA0A3ADF6BF /* libReactNativePermissions.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -333,6 +336,20 @@
 			remoteGlobalIDString = 94DDAC5C1F3D024300EED511;
 			remoteInfo = "RNSVG-tvOS";
 		};
+		C89839E820D319570006F7D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC79D374BDC44F1C9BBDCE1E /* RNCamera.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4107012F1ACB723B00C6AA39;
+			remoteInfo = RNCamera;
+		};
+		C8983A4920D31B0B0006F7D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1A08617BD0648A4BBE0DE99 /* ReactNativePermissions.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9D23B34F1C767B80008B4819;
+			remoteInfo = ReactNativePermissions;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -358,14 +375,19 @@
 		211DEBF1149F49CFBA799883 /* libRNDeviceInfo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNDeviceInfo.a; sourceTree = "<group>"; };
 		219215C19D694105BCCC8B2B /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = BVLinearGradient.xcodeproj; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		52A3D6AB31EF4FA0A3ADF6BF /* libReactNativePermissions.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativePermissions.a; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		682E6ACE172F4AAB9F21257F /* Cabo-Rounded.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Cabo-Rounded.otf"; path = "../res/fonts/Cabo-Rounded.otf"; sourceTree = "<group>"; };
 		7012EDC7947241EEA978F526 /* QuizzicalPitch.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = QuizzicalPitch.ttf; path = ../res/fonts/QuizzicalPitch.ttf; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		9F554BE04C4C48EAB605AEEE /* Cabo-Rounded-Italic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Cabo-Rounded-Italic.otf"; path = "../res/fonts/Cabo-Rounded-Italic.otf"; sourceTree = "<group>"; };
+		A1A08617BD0648A4BBE0DE99 /* ReactNativePermissions.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativePermissions.xcodeproj; path = "../node_modules/react-native-permissions/ios/ReactNativePermissions.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
+		C898391920D30F1A0006F7D0 /* ip.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ip.txt; sourceTree = "<group>"; };
 		D477FF4306024030A88C1F08 /* libBVLinearGradient.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libBVLinearGradient.a; sourceTree = "<group>"; };
+		DC79D374BDC44F1C9BBDCE1E /* RNCamera.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RNCamera.xcodeproj"; sourceTree = "<group>"; };
+		FA44D4A02CBB4405B0312899 /* libRNCamera.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCamera.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -389,6 +411,8 @@
 				3BE5FC40D7114B95830A17C4 /* libRNDeviceInfo.a in Frameworks */,
 				5CDAF19C06F24C788B3994BC /* libBVLinearGradient.a in Frameworks */,
 				00E12412828D40B7B7A4FDA8 /* libRNSVG.a in Frameworks */,
+				6CE2576ADC6247F290F60DD7 /* libRNCamera.a in Frameworks */,
+				CCC1FDC287DD4AA6A8754995 /* libReactNativePermissions.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +491,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				C898391920D30F1A0006F7D0 /* ip.txt */,
 			);
 			name = QuizMasterRemote;
 			sourceTree = "<group>";
@@ -548,6 +573,8 @@
 				03D523F2A992429F910976D9 /* RNDeviceInfo.xcodeproj */,
 				219215C19D694105BCCC8B2B /* BVLinearGradient.xcodeproj */,
 				1505B400D44A493FAB3F1ED3 /* RNSVG.xcodeproj */,
+				DC79D374BDC44F1C9BBDCE1E /* RNCamera.xcodeproj */,
+				A1A08617BD0648A4BBE0DE99 /* ReactNativePermissions.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -599,6 +626,8 @@
 				211DEBF1149F49CFBA799883 /* libRNDeviceInfo.a */,
 				D477FF4306024030A88C1F08 /* libBVLinearGradient.a */,
 				154CCF23E55F4B08AD20607D /* libRNSVG.a */,
+				FA44D4A02CBB4405B0312899 /* libRNCamera.a */,
+				52A3D6AB31EF4FA0A3ADF6BF /* libReactNativePermissions.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -626,6 +655,22 @@
 			children = (
 				C8100DE920D2AD7F000F7793 /* libRNSVG.a */,
 				C8100DEB20D2AD7F000F7793 /* libRNSVG-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C89839E520D319570006F7D0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C89839E920D319570006F7D0 /* libRNCamera.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C8983A4620D31B0B0006F7D0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C8983A4A20D31B0B0006F7D0 /* libReactNativePermissions.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -728,6 +773,14 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = C8983A4620D31B0B0006F7D0 /* Products */;
+					ProjectRef = A1A08617BD0648A4BBE0DE99 /* ReactNativePermissions.xcodeproj */;
+				},
+				{
+					ProductGroup = C89839E520D319570006F7D0 /* Products */;
+					ProjectRef = DC79D374BDC44F1C9BBDCE1E /* RNCamera.xcodeproj */;
 				},
 				{
 					ProductGroup = C8100DAF20D2AD7F000F7793 /* Products */;
@@ -1047,6 +1100,20 @@
 			remoteRef = C8100DEA20D2AD7F000F7793 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		C89839E920D319570006F7D0 /* libRNCamera.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNCamera.a;
+			remoteRef = C89839E820D319570006F7D0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C8983A4A20D31B0B0006F7D0 /* libReactNativePermissions.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libReactNativePermissions.a;
+			remoteRef = C8983A4920D31B0B0006F7D0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1059,6 +1126,7 @@
 				84F6EF1DDAD84A09B2F7066F /* Cabo-Rounded-Italic.otf in Resources */,
 				4958B3EF32DD4DFC898A932F /* Cabo-Rounded.otf in Resources */,
 				4639BD660F0D4C39AFDFE04F /* QuizzicalPitch.ttf in Resources */,
+				C898391A20D30F1A0006F7D0 /* ip.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1113,17 +1181,25 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = JML32JR2JD;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-device-info/ios/RNDeviceInfo",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 				);
 				INFOPLIST_FILE = QuizMasterRemote/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/QuizMasterRemote\"",
+					"\"$(SRCROOT)/QuizMasterRemote\"",
 					"\"$(SRCROOT)/QuizMasterRemote\"",
 					"\"$(SRCROOT)/QuizMasterRemote\"",
 					"\"$(SRCROOT)/QuizMasterRemote\"",
@@ -1150,12 +1226,16 @@
 					"$(SRCROOT)/../node_modules/react-native-device-info/ios/RNDeviceInfo",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 				);
 				INFOPLIST_FILE = QuizMasterRemote/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/QuizMasterRemote\"",
+					"\"$(SRCROOT)/QuizMasterRemote\"",
 					"\"$(SRCROOT)/QuizMasterRemote\"",
 					"\"$(SRCROOT)/QuizMasterRemote\"",
 					"\"$(SRCROOT)/QuizMasterRemote\"",

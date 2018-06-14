@@ -35,7 +35,6 @@ export default class App extends React.Component {
         colors={['rgba(255, 255, 255, 1)', 'rgba(255, 255, 255, 0)']}
         start={{x: 0, y: 0}}
         end={{x: 1, y: 0}}
-        locations={[0, 0.3]}
         pointerEvents='none'
       />
     )
@@ -50,6 +49,6 @@ const $ = StyleSheet.create({
 
   overlay: {
     ...layout.overlay,
-    opacity: 0.15
+    opacity: 0.05
   }
 })

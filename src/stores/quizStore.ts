@@ -6,9 +6,9 @@ export interface ConnectRequest {
 
 export class QuizStore {
 
-  async connectRequest(): Promise<ConnectRequest> {
+  async connectToScreen(uuid: string): Promise<ConnectRequest> {
     const {socket} = socketStore
-    return await socket.emitPromise('connect-request')
+    return await socket.emitPromise('remote-connect', uuid)
   }
 
 }

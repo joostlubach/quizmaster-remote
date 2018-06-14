@@ -1,7 +1,11 @@
 import {observable} from 'mobx'
 import {connect as connectSocket, SocketIOPromise} from 'socket.io-promise'
+import Logger from 'logger'
 
-const uri = __DEV__ ? 'http://localhost:3003/screen' : 'https://connect.quizmaster.app/screen'
+const logger = new Logger('SocketStore')
+
+// const uri = __DEV__ ? 'http://localhost:3003/remote' : 'https://connect.quizmaster.app/remote'
+const uri = __DEV__ ? 'http://192.168.178.179:3003/remote' : 'https://connect.quizmaster.app/remote'
 
 export class SocketStore {
 
@@ -10,6 +14,7 @@ export class SocketStore {
 
   connect() {
     this.socket = connectSocket(uri)
+    this.socket.once('connected', () => { logger.info("Connected") })
     this.socket.on('disconnect', this.onDisconnect)
   }
 
