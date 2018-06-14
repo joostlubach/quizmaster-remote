@@ -1,0 +1,11 @@
+{
+  "name": "safe-area",
+  "version": "1.0.0",
+  "description": "Low level safe area dimensions access",
+  "author": "Joost Lubach",
+  "license": "MIT",
+  "private": true,
+  "peerDependencies": {
+    "react-native": "^0.54.0"
+  }
+}

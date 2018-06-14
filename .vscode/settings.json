@@ -1,0 +1,14 @@
+{
+  "files.exclude":{
+    "ios/build/**": true,
+    "ios/Friendzy.*/**": true,
+    "ios/Pods/**": true,
+    "android/app/build/**": true,
+    "**/node_modules": true,
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true
+  }
+}

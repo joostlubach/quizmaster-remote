@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "outDir":    "es",
+    "target":    "es2015",
+    "lib":       ["es2015", "dom"],
+    "sourceMap": true,
+    "noEmit":    true,
+
+    "allowJs": true,
+		"jsx":     "react",
+		"rootDir": ".",
+
+		"strict": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+
+		"moduleResolution": "node",
+		"baseUrl": ".",
+    "paths": {
+      "@ui/*":     ["src/ui/*"],
+      "@src/*":    ["src/*"],
+      "@locales":  ["src/locales"],
+      "@res":      ["res"],
+      "@res/*":    ["res/*"],
+      "*": [
+        "pkg/*"
+      ]
+    }
+  },
+  "include": [
+		"types/*.d.ts",
+		"src/**/*",
+    "pkg/**/*",
+    "res/**/*"
+  ],
+}

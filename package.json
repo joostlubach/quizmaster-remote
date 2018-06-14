@@ -1,0 +1,48 @@
+{
+  "name": "QuizMasterRemote",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "color": "^3.0.0",
+    "lodash": "^4.17.10",
+    "mobx": "^5.0.2",
+    "mobx-react": "^5.2.3",
+    "react": "16.3.1",
+    "react-native": "0.55.4",
+    "react-native-device-info": "^0.21.5",
+    "react-native-linear-gradient": "^2.4.0",
+    "react-native-qrcode-scanner": "^1.0.1",
+    "react-native-qrcode-svg": "^5.0.6",
+    "react-native-svg": "^6.3.1",
+    "react-navigation": "^2.3.1",
+    "socket.io-client": "^2.1.1"
+  },
+  "devDependencies": {
+    "@types/color": "^3.0.0",
+    "@types/lodash": "^4.14.109",
+    "@types/react-native": "^0.55.19",
+    "@types/react-navigation": "^2.0.4",
+    "@types/socket.io-client": "^1.4.32",
+    "babel-jest": "23.0.1",
+    "babel-preset-react-native": "4.0.0",
+    "jest": "23.1.0",
+    "react-native-typescript-transformer": "^1.2.10",
+    "react-test-renderer": "16.3.1",
+    "tslint": "^5.10.0",
+    "tslint-consistent-codestyle": "^1.13.1",
+    "tslint-react": "^3.6.0",
+    "typescript": "^2.9.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "rnpm": {
+    "assets": [
+      "res/fonts"
+    ]
+  }
+}

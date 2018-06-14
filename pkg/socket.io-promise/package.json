@@ -1,0 +1,10 @@
+{
+	"name": "socket.io-promise",
+	"description": "Promise-based emit function addition",
+	"peerDependencies": {
+		"socket.io-client": "^2.0.4"
+	},
+	"devDependencies": {
+		"@types/socket.io-client": "^1.4.31"
+	}
+}
