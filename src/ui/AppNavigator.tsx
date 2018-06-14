@@ -1,4 +1,4 @@
-import {createStackNavigator, createSwitchNavigator} from 'react-navigation'
+import {createStackNavigator} from 'react-navigation'
 
 import HomeScreen from './home/HomeScreen'
 import QuizScreen from './quiz/QuizScreen'
