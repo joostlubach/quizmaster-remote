@@ -36,7 +36,7 @@ export default class HomeScreen extends React.Component<Props> {
 
   renderFooterButtons() {
     return (
-      <ButtonRow style={$.footer}>
+      <ButtonRow style={$.footer} footer>
         <Button icon='cog' label="SETTINGS"/>
         <Button icon='app' label="SCREEN"/>
         <Button icon='info' label="ABOUT"/>
@@ -59,6 +59,6 @@ const $ = StyleSheet.create({
   },
 
   footer: {
-    paddingBottom: layout.safeArea.bottom
+    marginTop: 1
   }
 })

@@ -1,5 +1,7 @@
 import * as React from 'react'
 import {StyleSheet, View, TouchableOpacity} from 'react-native'
+// @ts-ignore
+import Platform from 'Platform'
 import {colors, layout} from '@ui/styles'
 import {Label} from '@ui/components'
 import Color from 'color'
@@ -25,11 +27,11 @@ export default class RowButton extends React.Component<Props> {
   }
 
   render() {
-    const {active} = this.state
+    const active = this.state.active && Platform.isTV
 
     return (
       <TouchableOpacity
-        activeOpacity={1}
+        activeOpacity={Platform.isTV ? 1 : 0.6}
         onPressIn={() => { this.setState({active: true}) }}
         onPressOut={() => { this.setState({active: false}) }}
         onPress={this.props.onPress}

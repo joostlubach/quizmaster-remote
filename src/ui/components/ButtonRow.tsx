@@ -5,6 +5,7 @@ import {layout} from '@ui/styles'
 
 export interface Props {
   style?:    ViewStyleProp
+  footer?:   boolean
   children?: React.ReactNode
 }
 
@@ -20,6 +21,8 @@ export default class ButtonRow extends React.Component<Props> {
   }
 
   render() {
+    const {style, footer} = this.props
+
     const buttonSize = (layout.window.width + 1) / this.buttons.length - 1
     const buttons = this.buttons.map((button, index) => {
       return React.cloneElement(button, {
@@ -27,15 +30,16 @@ export default class ButtonRow extends React.Component<Props> {
           button.props.style,
           {
             width:      buttonSize,
-            height:     buttonSize,
+            height:     buttonSize + (footer ? layout.padding.l - layout.padding.m : 0),
             marginLeft: index === 0 ? 0 : 1
           }
-        ]
+        ],
+        footer
       })
     })
 
     return (
-      <View style={$.buttonRow}>
+      <View style={[$.buttonRow, style]}>
         {buttons}
       </View>
     )

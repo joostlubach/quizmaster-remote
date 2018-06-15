@@ -1,5 +1,7 @@
 import * as React from 'react'
 import {StyleSheet, View, TouchableOpacity} from 'react-native'
+// @ts-ignore
+import Platform from 'Platform'
 import {colors, layout} from '@ui/styles'
 import {Label} from '@ui/components'
 import Color from 'color'
@@ -12,6 +14,7 @@ export interface Props {
 
   label?:   string
   icon?:    string
+  footer?:  boolean
   onPress?: () => any
 }
 
@@ -26,11 +29,11 @@ export default class Button extends React.Component<Props> {
   }
 
   render() {
-    const {active} = this.state
+    const active = this.state.active && Platform.isTV
 
     return (
       <TouchableOpacity
-        activeOpacity={1}
+        activeOpacity={Platform.isTV ? 1 : 0.6}
         onPressIn={() => { this.setState({active: true}) }}
         onPressOut={() => { this.setState({active: false}) }}
         onPress={this.props.onPress}
@@ -55,11 +58,11 @@ export default class Button extends React.Component<Props> {
   }
 
   renderContent() {
-    const {label, icon} = this.props
+    const {label, icon, footer} = this.props
     const Icon = icon == null ? null : (images as any)[icon]
 
     return (
-      <View style={$.content}>
+      <View style={[$.content, footer && $.contentFooter]}>
         {Icon != null && <Icon style={$.icon}/>}
         {label != null && <Label small>{label}</Label>}
       </View>
@@ -80,8 +83,14 @@ const $ = StyleSheet.create({
   },
 
   content: {
+    flex: 1,
     ...layout.center,
+
     padding: layout.padding.m
+  },
+
+  contentFooter: {
+    paddingBottom: layout.padding.l
   },
 
   icon: {
