@@ -1,9 +1,15 @@
 import * as React from 'react'
-import {StyleSheet, View} from 'react-native'
+import {StyleSheet} from 'react-native'
 import QRCodeScanner, {ReadEvent} from 'react-native-qrcode-scanner'
 import {quizStore} from '@src/stores'
+import {Screen, Header} from '@ui/components'
+import {NavigationScreenProps} from 'react-navigation'
 
-export interface Props {
+export interface Params {
+  id: string | null
+}
+
+export interface Props extends NavigationScreenProps<Params> {
 
 }
 
@@ -11,15 +17,27 @@ export default class QuizScreen extends React.Component<Props> {
 
   scanner: QRCodeScanner | null = null
 
+  get id(): string | null {
+    return this.props.navigation.getParam('id')
+  }
+
+  get isNew() {
+    return this.id == null
+  }
+
   render() {
     return (
-      <View style={$.screen}>
+      <Screen style={$.screen}>
+        <Header
+          title="New quiz"
+        />
         <QRCodeScanner
           ref={el => { this.scanner = el }}
           onRead={this.onQRRead}
           showMarker={true}
+          fadeIn={false}
         />
-      </View>
+      </Screen>
     )
   }
 

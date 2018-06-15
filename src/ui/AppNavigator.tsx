@@ -5,7 +5,7 @@ import QuizScreen from './quiz/QuizScreen'
 
 const AppNavigator = createStackNavigator({
   home: {
-    screen: HomeScreen
+    screen: HomeScreen,
   },
   quiz: {
     screen: QuizScreen

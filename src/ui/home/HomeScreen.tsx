@@ -4,8 +4,9 @@ import {StyleSheet} from 'react-native'
 import {Screen, Logo, RowButton, ButtonRow, Button} from '@ui/components'
 import {colors, layout} from '@ui/styles'
 import QuizList from './QuizList'
+import {NavigationScreenProps} from 'react-navigation'
 
-export interface Props {
+export interface Props extends NavigationScreenProps {
 
 }
 
@@ -29,7 +30,8 @@ export default class HomeScreen extends React.Component<Props> {
       <RowButton
         color={colors.blue}
         label="CREATE QUIZ"
-        large
+        large={true}
+        onPress={() => { this.props.navigation.navigate('quiz', {id: null}) }}
       />
     )
   }

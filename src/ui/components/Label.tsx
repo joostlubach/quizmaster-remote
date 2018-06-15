@@ -37,13 +37,13 @@ export default function Label(props: Props) {
     dim && $.dim,
     center && $.center,
 
-    !large && !huge && !small && !italic && $.normal,
+    !large && !huge && !small && $.normal,
     !large && !huge && !small && italic && $.normalItalic,
-    small && !italic && $.small,
+    small && $.small,
     small && italic && $.smallItalic,
-    large && !italic && $.large,
+    large && $.large,
     large && italic && $.largeItalic,
-    huge && !italic && $.huge,
+    huge && $.huge,
     huge && italic && $.hugeItalic
   ]
 
@@ -71,7 +71,8 @@ const $ = StyleSheet.create({
   },
 
   normal: {
-    ...fonts.normal
+    ...fonts.normal,
+    paddingTop: fonts.normal.fontSize * 0.2
   },
 
   normalItalic: {
@@ -79,7 +80,8 @@ const $ = StyleSheet.create({
   },
 
   small: {
-    ...fonts.small
+    ...fonts.small,
+    paddingTop: fonts.small.fontSize * 0.2
   },
 
   smallItalic: {
@@ -87,7 +89,8 @@ const $ = StyleSheet.create({
   },
 
   large: {
-    ...fonts.large
+    ...fonts.large,
+    paddingTop: fonts.large.fontSize * 0.2
   },
 
   largeItalic: {
@@ -95,7 +98,8 @@ const $ = StyleSheet.create({
   },
 
   huge: {
-    ...fonts.huge
+    ...fonts.huge,
+    paddingTop: fonts.huge.fontSize * 0.2
   },
 
   hugeItalic: {

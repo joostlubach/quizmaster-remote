@@ -20,17 +20,17 @@ export const normalItalic = {
 }
 export const large = {
   fontFamily: regularFamily,
-  fontSize:   32
+  fontSize:   26
 }
 export const largeItalic = {
   fontFamily: regularItalicFamily,
-  fontSize:   32
+  fontSize:   26
 }
 export const huge = {
   fontFamily: regularFamily,
-  fontSize:   48
+  fontSize:   40
 }
 export const hugeItalic = {
   fontFamily: regularItalicFamily,
-  fontSize:   48
+  fontSize:   40
 }

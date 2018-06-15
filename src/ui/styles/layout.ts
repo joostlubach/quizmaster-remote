@@ -1,8 +1,9 @@
-import {ViewStyle, Dimensions} from 'react-native'
+import {Platform, ViewStyle, Dimensions} from 'react-native'
 import {portrait as safeAreaPortrait} from 'safe-area'
 
-export const safeArea = safeAreaPortrait
 export const window = Dimensions.get('window')
+export const safeArea = safeAreaPortrait
+export const headerHeight = safeArea.top + (Platform.OS === 'ios' ? 44 : 52)
 
 export const padding = {
   xxl: 32,
