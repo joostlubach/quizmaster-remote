@@ -1,45 +1,64 @@
 import * as React from 'react'
-import {StyleSheet, View} from 'react-native'
-import {colors} from '@ui/styles'
-import QRCodeScanner, {ReadEvent} from 'react-native-qrcode-scanner'
-import {quizStore} from '@src/stores'
+import {observer} from 'mobx-react'
+import {StyleSheet} from 'react-native'
+import {Screen, Logo, RowButton, ButtonRow, Button} from '@ui/components'
+import {colors, layout} from '@ui/styles'
+import QuizList from './QuizList'
 
 export interface Props {
 
 }
 
+@observer
 export default class HomeScreen extends React.Component<Props> {
-
-  scanner: QRCodeScanner | null = null
 
   render() {
     return (
-      <View style={$.screen}>
-        <QRCodeScanner
-          ref={el => { this.scanner = el }}
-          onRead={this.onQRRead}
-          showMarker={true}
-        />
-      </View>
+      <Screen style={$.screen}>
+        <Logo/>
+        <QuizList style={$.list}/>
+
+        {this.renderCreateQuizButton()}
+        {this.renderFooterButtons()}
+      </Screen>
     )
   }
 
-  onQRRead = async (event: ReadEvent) => {
-    await quizStore.connectToScreen(event.data)
+  renderCreateQuizButton() {
+    return (
+      <RowButton
+        color={colors.blue}
+        label="CREATE QUIZ"
+        large
+      />
+    )
+  }
 
-    setTimeout(() => {
-      this.scanner!.reactivate()
-    }, 2000)
+  renderFooterButtons() {
+    return (
+      <ButtonRow style={$.footer}>
+        <Button icon='cog' label="SETTINGS"/>
+        <Button icon='app' label="SCREEN"/>
+        <Button icon='info' label="ABOUT"/>
+        <Button icon='heart' label="SHARE"/>
+      </ButtonRow>
+    )
   }
 
 }
 
 const $ = StyleSheet.create({
   screen: {
-    flex:             1,
-    backgroundColor: colors.bg.normal
+    paddingTop: layout.safeArea.top + layout.padding.xxl
   },
 
-  scanner: {
+  list: {
+    marginTop:      layout.padding.l,
+    borderTopColor: colors.green,
+    borderTopWidth: 4
+  },
+
+  footer: {
+    paddingBottom: layout.safeArea.bottom
   }
 })

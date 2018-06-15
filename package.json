@@ -1,9 +1,11 @@
 {
-  "name": "QuizMasterRemote",
+  "name": "quizmaster-remote",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start": "gulp & yarn packager",
+    "packager": "node node_modules/react-native/local-cli/cli.js start --port 8082",
+    "run-ios": "RCT_METRO_PORT=8082 react-native run-ios",
     "test": "jest"
   },
   "dependencies": {
@@ -30,6 +32,10 @@
     "@types/socket.io-client": "^1.4.32",
     "babel-jest": "23.0.1",
     "babel-preset-react-native": "4.0.0",
+    "gulp": "^3.9.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-sketch": "^1.0.5",
+    "gulp-yaml": "^2.0.1",
     "jest": "23.1.0",
     "react-native-typescript-transformer": "^1.2.10",
     "react-test-renderer": "16.3.1",

@@ -13,6 +13,7 @@ export interface Props extends TextProperties {
   center?: boolean
   large?:  boolean
   huge?:   boolean
+  small?:  boolean
 }
 
 export default function Label(props: Props) {
@@ -23,6 +24,7 @@ export default function Label(props: Props) {
     dim = false,
     center = false,
     italic = false,
+    small = false,
     large = false,
     huge = false,
 
@@ -35,8 +37,10 @@ export default function Label(props: Props) {
     dim && $.dim,
     center && $.center,
 
-    !large && !huge && !italic && $.normal,
-    !large && !huge && italic && $.normalItalic,
+    !large && !huge && !small && !italic && $.normal,
+    !large && !huge && !small && italic && $.normalItalic,
+    small && !italic && $.small,
+    small && italic && $.smallItalic,
     large && !italic && $.large,
     large && italic && $.largeItalic,
     huge && !italic && $.huge,
@@ -72,6 +76,14 @@ const $ = StyleSheet.create({
 
   normalItalic: {
     ...fonts.normalItalic
+  },
+
+  small: {
+    ...fonts.small
+  },
+
+  smallItalic: {
+    ...fonts.smallItalic
   },
 
   large: {

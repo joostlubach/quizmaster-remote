@@ -3,14 +3,15 @@ import {StyleSheet, View, TouchableOpacity} from 'react-native'
 import {colors, layout} from '@ui/styles'
 import {Label} from '@ui/components'
 import Color from 'color'
+import {images} from '@res'
 
 export interface Props {
   style?: ViewStyleProp
-  large?: boolean
-  huge?:  boolean
   color?: Color
+  size?:  Size
 
   label?:   string
+  icon?:    string
   onPress?: () => any
 }
 
@@ -18,7 +19,7 @@ interface State {
   active: boolean
 }
 
-export default class RowButton extends React.Component<Props> {
+export default class Button extends React.Component<Props> {
 
   state: State = {
     active: false
@@ -34,7 +35,7 @@ export default class RowButton extends React.Component<Props> {
         onPressOut={() => { this.setState({active: false}) }}
         onPress={this.props.onPress}
       >
-        <View style={[$.container, active && $.active, this.props.style]}>
+        <View style={[active && $.active, this.props.style]}>
           {this.renderBackground()}
           {this.renderContent()}
         </View>
@@ -54,12 +55,13 @@ export default class RowButton extends React.Component<Props> {
   }
 
   renderContent() {
-    const {label, large, huge} = this.props
-    const padding = huge ? layout.padding.xl : large ? layout.padding.l : layout.padding.m
+    const {label, icon} = this.props
+    const Icon = icon == null ? null : (images as any)[icon]
 
     return (
-      <View style={[$.content, {padding, paddingBottom: padding - 2}]}>
-        {label != null && <Label large={large} huge={huge}>{label}</Label>}
+      <View style={$.content}>
+        {Icon != null && <Icon style={$.icon}/>}
+        {label != null && <Label small>{label}</Label>}
       </View>
     )
   }
@@ -67,10 +69,6 @@ export default class RowButton extends React.Component<Props> {
 }
 
 const $ = StyleSheet.create({
-  container: {
-    alignSelf: 'stretch'
-  },
-
   active: {
     shadowColor: 'white',
     shadowOpacity: 0.6,
@@ -82,6 +80,11 @@ const $ = StyleSheet.create({
   },
 
   content: {
-    alignItems: 'center'
+    ...layout.center,
+    padding: layout.padding.m
+  },
+
+  icon: {
+    marginBottom: layout.padding.m
   }
 })
