@@ -1,8 +1,9 @@
 import * as React from 'react'
+import {observer} from 'mobx-react'
 import {StyleSheet} from 'react-native'
 import QRCodeScanner, {ReadEvent} from 'react-native-qrcode-scanner'
 import {quizStore} from '@src/stores'
-import {Screen, Header} from '@ui/components'
+import {Screen, Header, InlineEditor} from '@ui/components'
 import {NavigationScreenProps} from 'react-navigation'
 
 export interface Params {
@@ -13,6 +14,7 @@ export interface Props extends NavigationScreenProps<Params> {
 
 }
 
+@observer
 export default class QuizScreen extends React.Component<Props> {
 
   scanner: QRCodeScanner | null = null
@@ -25,11 +27,25 @@ export default class QuizScreen extends React.Component<Props> {
     return this.id == null
   }
 
+  get quiz() {
+    return quizStore.quiz.data
+  }
+
+  componentDidMount() {
+    if (this.id != null) {
+      quizStore.quiz.load(this.id)
+    } else {
+      quizStore.quiz.new({
+        title: "New quiz"
+      })
+    }
+  }
+
   render() {
     return (
       <Screen style={$.screen}>
         <Header
-          title="New quiz"
+          title={this.renderTitle()}
         />
         <QRCodeScanner
           ref={el => { this.scanner = el }}
@@ -38,6 +54,20 @@ export default class QuizScreen extends React.Component<Props> {
           fadeIn={false}
         />
       </Screen>
+    )
+  }
+
+  renderTitle() {
+    if (this.quiz == null) { return }
+
+    return (
+      <InlineEditor
+        value={this.quiz.title}
+        onCommit={title => { quizStore.quiz.set('title', title) }}
+        initiallyEditing
+        center
+        large
+      />
     )
   }
 

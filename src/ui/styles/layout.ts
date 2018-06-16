@@ -14,6 +14,12 @@ export const padding = {
   xs:  4
 }
 
+export const radius = {
+  l: 8,
+  m: 4,
+  s: 2
+}
+
 export const overlay: ViewStyle = {
   position: 'absolute',
   top:      0,

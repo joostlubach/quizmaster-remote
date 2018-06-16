@@ -28,6 +28,7 @@ export default class Collection<T> {
 
   fetch(offset: number = 0) {
     this.loading = true
+    this.fetchError = null
 
     const promise = socketStore.socket.emitPromise(`${this.resource}:fetch`, offset)
     promise.then(this.onFetchSuccess, this.onFetchError)

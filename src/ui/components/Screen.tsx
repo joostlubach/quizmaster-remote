@@ -2,7 +2,9 @@ import * as React from 'react'
 import {StyleSheet, View, ViewProps} from 'react-native'
 import {colors} from '@ui/styles'
 
-export default class Screen extends React.Component<ViewProps> {
+export interface Props extends ViewProps {}
+
+export default class Screen extends React.Component<Props> {
 
   render() {
     const {style, ...props} = this.props

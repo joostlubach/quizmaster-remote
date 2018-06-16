@@ -46,11 +46,11 @@ class Header extends React.Component<Props & NavigationInjectedProps, State> {
     const paddingRight = Math.max(leftWidth, rightWidth) + layout.padding.m
 
     const title = typeof this.props.title === 'string'
-      ? <Label large>{this.props.title}</Label>
+      ? <Label large center>{this.props.title}</Label>
       : this.props.title
 
     return (
-      <View style={[$.title, {paddingLeft, paddingRight}]}>
+      <View style={[{paddingLeft, paddingRight}]}>
         {title}
       </View>
     )
@@ -93,10 +93,6 @@ const $ = StyleSheet.create({
 
     flexDirection: 'row',
     alignItems:    'center'
-  },
-
-  title: {
-    alignSelf: 'center'
   },
 
   right: {

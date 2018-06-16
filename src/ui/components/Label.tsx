@@ -3,10 +3,10 @@ import {Text, StyleSheet, TextProperties} from 'react-native'
 import {colors, fonts} from '@ui/styles'
 
 export interface Props extends TextProperties {
-  children?:         React.ReactNode,
-  style?:            TextStyleProp,
-  linkStyle?:        TextStyleProp,
-  allowFontScaling?: boolean,
+  children?:         React.ReactNode
+  style?:            TextStyleProp
+  linkStyle?:        TextStyleProp
+  allowFontScaling?: boolean
 
   italic?: boolean
   dim?:    boolean
