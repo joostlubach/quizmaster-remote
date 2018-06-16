@@ -1,12 +1,13 @@
 import * as React from 'react'
-import {StyleSheet, View, FlatList} from 'react-native'
+import {StyleSheet, View, FlatList, TouchableOpacity} from 'react-native'
 import {observer} from 'mobx-react'
 import {quizStore, Quiz} from '@src/stores'
 import {colors, layout} from '@ui/styles'
 import {Label} from '@ui/components'
 
 export interface Props {
-  style?: ViewStyleProp
+  style?:      ViewStyleProp
+  onQuizPress: (quiz: Quiz) => any
 }
 
 @observer
@@ -25,6 +26,7 @@ export default class QuizList extends React.Component<Props> {
         contentContainerStyle={[$.listContent, quizStore.quizzes.empty && $.listContentEmpty]}
         data={quizStore.quizzes.data}
         ListEmptyComponent={this.ListEmptyComponent}
+        keyExtractor={quiz => quiz.id!}
         renderItem={({item}) => this.renderItem(item)}
       />
     )
@@ -41,8 +43,16 @@ export default class QuizList extends React.Component<Props> {
   renderItem(quiz: Quiz) {
     return (
       <View style={$.item}>
-        <Label>{quiz.title}</Label>
+        {this.renderQuiz(quiz)}
       </View>
+    )
+  }
+
+  renderQuiz(quiz: Quiz) {
+    return (
+      <TouchableOpacity style={$.quiz} onPress={() => { this.props.onQuizPress(quiz) }}>
+        <Label>{quiz.title}</Label>
+      </TouchableOpacity>
     )
   }
 
@@ -59,7 +69,10 @@ const $ = StyleSheet.create({
 
   item: {
     borderBottomWidth: 4,
-    borderBottomColor: colors.green,
-    padding:           layout.padding.m
+    borderBottomColor: colors.green
+  },
+
+  quiz: {
+    padding: layout.padding.l
   }
 })

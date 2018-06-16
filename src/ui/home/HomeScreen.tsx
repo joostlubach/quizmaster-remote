@@ -17,7 +17,10 @@ export default class HomeScreen extends React.Component<Props> {
     return (
       <Screen style={$.screen}>
         <Logo/>
-        <QuizList style={$.list}/>
+        <QuizList
+          style={$.list}
+          onQuizPress={quiz => { this.props.navigation.navigate('quiz', {id: quiz.id}) }}
+        />
 
         {this.renderCreateQuizButton()}
         {this.renderFooterButtons()}

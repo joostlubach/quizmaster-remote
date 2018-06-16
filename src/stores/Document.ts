@@ -57,11 +57,11 @@ export default class Document<T> {
     this.loading    = false
   })
 
-  save(id: string) {
+  save() {
     this.saving = true
     this.saveError = null
 
-    const promise = socketStore.socket.emitPromise(`${this.resource}:save`, id)
+    const promise = socketStore.socket.emitPromise(`${this.resource}:save`, this.data)
     promise.then(this.onLoadSuccess, this.onLoadError)
   }
 
@@ -84,6 +84,13 @@ export default class Document<T> {
   set<K extends keyof T>(key: K, value: T[K]) {
     if (this.data == null) { return }
     this.data[key] = value
+  }
+
+  update(data: Partial<T>) {
+    if (this.data == null) { return }
+
+    Object.assign(this.data, data)
+    this.save()
   }
 
 }

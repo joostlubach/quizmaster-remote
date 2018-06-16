@@ -50,7 +50,7 @@ class Header extends React.Component<Props & NavigationInjectedProps, State> {
       : this.props.title
 
     return (
-      <View style={[{paddingLeft, paddingRight}]}>
+      <View style={[$.title, {paddingLeft, paddingRight}]} pointerEvents='box-none'>
         {title}
       </View>
     )
@@ -78,9 +78,9 @@ class Header extends React.Component<Props & NavigationInjectedProps, State> {
 const $ = StyleSheet.create({
   header: {
     backgroundColor: colors.green,
-    padding:         layout.padding.m,
-    paddingTop:      layout.safeArea.top + layout.padding.m,
-    height:          layout.headerHeight,
+    paddingHorizontal: layout.padding.m,
+    paddingTop:        layout.safeArea.top + layout.padding.m,
+    height:            layout.headerHeight,
 
     justifyContent: 'flex-end'
   },
@@ -93,6 +93,11 @@ const $ = StyleSheet.create({
 
     flexDirection: 'row',
     alignItems:    'center'
+  },
+
+  title: {
+    height:         layout.headerHeight - layout.safeArea.top,
+    justifyContent: 'center'
   },
 
   right: {

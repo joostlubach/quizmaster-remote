@@ -63,7 +63,7 @@ export default class QuizScreen extends React.Component<Props> {
     return (
       <InlineEditor
         value={this.quiz.title}
-        onCommit={title => { quizStore.quiz.set('title', title) }}
+        onCommit={title => { quizStore.quiz.update({title}) }}
         initiallyEditing
         center
         large
