@@ -1,4 +1,4 @@
-import {observable, action, computed} from 'mobx'
+import {observable, action, computed, toJS} from 'mobx'
 import {SocketError} from 'socket.io-promise'
 import socketStore from './socketStore'
 
@@ -34,16 +34,17 @@ export default class Document<T> {
   @observable
   saveError: Error | null = null
 
-  new(data: T) {
+  build(data: T) {
     this.data = data
   }
 
   load(id: string) {
     this.loading = true
+    this.data = null
     this.loadError = null
 
     const promise = socketStore.socket.emitPromise(`${this.resource}:load`, id)
-    promise.then(this.onLoadSuccess, this.onLoadError)
+    return promise.then(this.onLoadSuccess, this.onLoadError)
   }
 
   onLoadSuccess = action((result: LoadResult<T>) => {
@@ -61,8 +62,8 @@ export default class Document<T> {
     this.saving = true
     this.saveError = null
 
-    const promise = socketStore.socket.emitPromise(`${this.resource}:save`, this.data)
-    promise.then(this.onLoadSuccess, this.onLoadError)
+    const promise = socketStore.socket.emitPromise(`${this.resource}:save`, toJS(this.data))
+    return promise.then(this.onSaveSuccess, this.onSaveError)
   }
 
   onSaveSuccess = action((result: SaveResult<T>) => {
@@ -90,7 +91,7 @@ export default class Document<T> {
     if (this.data == null) { return }
 
     Object.assign(this.data, data)
-    this.save()
+    return this.save()
   }
 
 }

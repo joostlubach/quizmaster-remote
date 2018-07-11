@@ -9,7 +9,6 @@ import Color from 'color'
 export interface Props {
   style?: ViewStyleProp
   large?: boolean
-  huge?:  boolean
   color?: Color
 
   label?:   string
@@ -31,12 +30,13 @@ export default class RowButton extends React.Component<Props> {
 
     return (
       <TouchableOpacity
+        style={[$.button, active && $.active, this.props.style]}
         activeOpacity={Platform.isTV ? 1 : 0.6}
         onPressIn={() => { this.setState({active: true}) }}
         onPressOut={() => { this.setState({active: false}) }}
         onPress={this.props.onPress}
       >
-        <View style={[$.container, active && $.active, this.props.style]}>
+        <View style={$.container}>
           {this.renderBackground()}
           {this.renderContent()}
         </View>
@@ -56,12 +56,12 @@ export default class RowButton extends React.Component<Props> {
   }
 
   renderContent() {
-    const {label, large, huge} = this.props
-    const padding = huge ? layout.padding.xl : large ? layout.padding.l : layout.padding.m
+    const {label, large} = this.props
+    const padding = large ? layout.padding.m : layout.padding.s
 
     return (
       <View style={[$.content, {padding, paddingBottom: padding - 2}]}>
-        {label != null && <Label large={large} huge={huge}>{label}</Label>}
+        {label != null && <Label large={large}>{label}</Label>}
       </View>
     )
   }
@@ -69,8 +69,11 @@ export default class RowButton extends React.Component<Props> {
 }
 
 const $ = StyleSheet.create({
-  container: {
+  button: {
     alignSelf: 'stretch'
+  },
+
+  container: {
   },
 
   active: {

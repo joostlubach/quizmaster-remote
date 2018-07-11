@@ -1145,7 +1145,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"$CONFIGURATION\" != \"Debug\" ]; then\n    export NODE_BINARY=node ../node_modules/react-native/scripts/react-native-xcode.sh\nfi";
+			shellScript = "if [ \"$CONFIGURATION\" != \"Debug\" ]; then\n    NODE_BINARY=node ../node_modules/react-native/scripts/react-native-xcode.sh\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -1,20 +1,37 @@
 import * as React from 'react'
-import {StyleSheet, View, FlatList, TouchableOpacity} from 'react-native'
+import {StyleSheet, View, FlatList} from 'react-native'
 import {observer} from 'mobx-react'
 import {quizStore, Quiz} from '@src/stores'
 import {colors, layout} from '@ui/styles'
-import {Label} from '@ui/components'
+import {Label, ListRow} from '@ui/components'
+import {images} from '@res'
 
 export interface Props {
   style?:      ViewStyleProp
   onQuizPress: (quiz: Quiz) => any
 }
 
+interface State {
+  refreshing:    boolean
+  scrollEnabled: boolean
+}
+
 @observer
-export default class QuizList extends React.Component<Props> {
+export default class QuizList extends React.Component<Props, State> {
+
+  state: State = {
+    refreshing:    false,
+    scrollEnabled: true
+  }
 
   componentDidMount() {
     quizStore.quizzes.fetch()
+  }
+
+  async refresh() {
+    this.setState({refreshing: true})
+    await quizStore.quizzes.fetch()
+    this.setState({refreshing: false})
   }
 
   render() {
@@ -28,6 +45,10 @@ export default class QuizList extends React.Component<Props> {
         ListEmptyComponent={this.ListEmptyComponent}
         keyExtractor={quiz => quiz.id!}
         renderItem={({item}) => this.renderItem(item)}
+        scrollEnabled={this.state.scrollEnabled}
+
+        onRefresh={() => { this.refresh() }}
+        refreshing={this.state.refreshing}
       />
     )
   }
@@ -43,17 +64,29 @@ export default class QuizList extends React.Component<Props> {
   renderItem(quiz: Quiz) {
     return (
       <View style={$.item}>
-        {this.renderQuiz(quiz)}
+        <ListRow
+          icon={<images.trophy color={colors.fg.dim}/>}
+          caption={quiz.title}
+          accessory='chevronRight'
+          actions={[
+            {
+              color:   colors.red,
+              icon:    'trash',
+              label:   "DELETE",
+              onPress: this.onDeleteQuiz.bind(null, quiz)
+            }
+          ]}
+          onPress={() => { this.props.onQuizPress(quiz) }}
+
+          onSwipeStart={() => { console.log("START"); this.setState({scrollEnabled: false}) }}
+          onSwipeEnd={() => { console.log("END"); this.setState({scrollEnabled: true}) }}
+        />
       </View>
     )
   }
 
-  renderQuiz(quiz: Quiz) {
-    return (
-      <TouchableOpacity style={$.quiz} onPress={() => { this.props.onQuizPress(quiz) }}>
-        <Label>{quiz.title}</Label>
-      </TouchableOpacity>
-    )
+  onDeleteQuiz = (quiz: Quiz) => {
+    quizStore.quizzes.delete(quiz.id!)
   }
 
 }
@@ -70,9 +103,5 @@ const $ = StyleSheet.create({
   item: {
     borderBottomWidth: 4,
     borderBottomColor: colors.green
-  },
-
-  quiz: {
-    padding: layout.padding.l
   }
 })

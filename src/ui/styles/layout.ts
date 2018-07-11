@@ -4,14 +4,15 @@ import {portrait as safeAreaPortrait} from 'safe-area'
 export const window = Dimensions.get('window')
 export const safeArea = safeAreaPortrait
 export const headerHeight = safeArea.top + (Platform.OS === 'ios' ? 44 : 52)
+export const keyboardHeight = Platform.OS === 'ios' ? 216 : 0
 
 export const padding = {
-  xxl: 32,
-  xl:  20,
-  l:   16,
-  m:   10,
-  s:   6,
-  xs:  4
+  xxl: 64,
+  xl:  32,
+  l:   24,
+  m:   16,
+  s:   10,
+  xs:  6
 }
 
 export const radius = {

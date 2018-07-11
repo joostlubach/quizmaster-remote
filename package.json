@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "start": "gulp & yarn packager",
-    "packager": "node node_modules/react-native/local-cli/cli.js start --port 8082",
-    "run-ios": "RCT_METRO_PORT=8082 react-native run-ios",
+    "packager": "node node_modules/react-native/local-cli/cli.js start",
+    "run-ios": "react-native run-ios",
     "test": "jest"
   },
   "dependencies": {
@@ -20,9 +20,11 @@
     "react-native-linear-gradient": "^2.4.0",
     "react-native-qrcode-scanner": "^1.0.1",
     "react-native-qrcode-svg": "^5.0.6",
+    "react-native-shadow": "^1.2.2",
     "react-native-svg": "^6.3.1",
     "react-navigation": "^2.3.1",
-    "socket.io-client": "^2.1.1"
+    "socket.io-client": "^2.1.1",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@types/color": "^3.0.0",
@@ -30,6 +32,7 @@
     "@types/react-native": "^0.55.19",
     "@types/react-navigation": "^2.0.4",
     "@types/socket.io-client": "^1.4.32",
+    "@types/uuid": "^3.4.3",
     "babel-jest": "23.0.1",
     "babel-preset-react-native": "4.0.0",
     "gulp": "^3.9.1",

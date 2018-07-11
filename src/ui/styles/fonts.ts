@@ -34,3 +34,8 @@ export const hugeItalic = {
   fontFamily: regularItalicFamily,
   fontSize:   40
 }
+
+export const score = {
+  fontFamily: scoreFamily,
+  fontSize:   32
+}

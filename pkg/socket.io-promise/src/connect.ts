@@ -16,7 +16,17 @@ export default function connect(uri: string, opts?: SocketIOClient.ConnectOpts):
 
 function emitPromise<T>(this: SocketIOPromise, event: string, ...args: any[]): Promise<T> {
   return new Promise((resolve, reject) => {
+    let timedOut = false
+    const timeout = setTimeout(() => {
+      timedOut = true
+      reject(new SocketError(0, "Time-out"))
+      clearTimeout(timeout)
+    }, 2000)
+
     this.emit(event, ...args, (error?: any, result?: T) => {
+      if (timedOut) { return }
+      clearTimeout(timeout)
+
       if (error != null) {
         reject(SocketError.deserialize(error))
       } else {

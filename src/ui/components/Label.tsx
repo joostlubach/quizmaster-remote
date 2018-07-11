@@ -9,11 +9,12 @@ export interface Props extends TextProperties {
   allowFontScaling?: boolean
 
   italic?: boolean
+  strong?: boolean
   dim?:    boolean
   center?: boolean
   large?:  boolean
-  huge?:   boolean
   small?:  boolean
+  score?:  boolean
 }
 
 export default function Label(props: Props) {
@@ -21,12 +22,13 @@ export default function Label(props: Props) {
     style     = null,
     allowFontScaling = false,
 
-    dim = false,
+    dim    = false,
     center = false,
     italic = false,
-    small = false,
-    large = false,
-    huge = false,
+    strong = false,
+    small  = false,
+    large  = false,
+    score  = false,
 
     children,
   } = props
@@ -37,14 +39,15 @@ export default function Label(props: Props) {
     dim && $.dim,
     center && $.center,
 
-    !large && !huge && !small && $.normal,
-    !large && !huge && !small && italic && $.normalItalic,
+    !large && !small && $.normal,
+    !large && !small && italic && $.normalItalic,
     small && $.small,
     small && italic && $.smallItalic,
     large && $.large,
     large && italic && $.largeItalic,
-    huge && $.huge,
-    huge && italic && $.hugeItalic
+
+    strong && $.strong,
+    score && $.score
   ]
 
   return (
@@ -97,12 +100,12 @@ const $ = StyleSheet.create({
     ...fonts.largeItalic
   },
 
-  huge: {
-    ...fonts.huge,
-    paddingTop: fonts.huge.fontSize * 0.2
+  strong: {
+    fontWeight: '500'
   },
 
-  hugeItalic: {
-    ...fonts.hugeItalic
-  },
+  score: {
+    ...fonts.score
+  }
+
 })

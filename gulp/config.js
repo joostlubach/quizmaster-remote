@@ -11,7 +11,7 @@ module.exports = {
 	dirs,
 
 	images: {
-		sketch:      Path.join(dirs.res, 'quizmaster-screen.sketch'),
+		sketch:      Path.join(dirs.res, 'quizmaster-remote.sketch'),
 		destination: Path.join(dirs.res, 'images'),
 
 		manifestFile:      Path.join(dirs.res, 'images/index.ts'),
